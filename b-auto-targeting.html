@@ -45,11 +45,14 @@
         {
           continue;
         }
-        // Keep the latest enemy if two have equal health.
-          if (target && target.health > enemy.health) {
+        // Check health of current enemy against previous, 
+        // whoever has the highest health remains the target.
+        // If both target and enemy have the same health,
+        // The latter becomes the next target.
+        if (target && target.health > enemy.health) {
           continue;
-          }
-          target = enemy;
+        }
+        target = enemy;
       }
       return target;
     }
